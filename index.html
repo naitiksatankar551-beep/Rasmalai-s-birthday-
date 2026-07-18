@@ -1,1 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>A Little Gift ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    height:100vh;
+    overflow:hidden;
+
+    font-family:'Poppins',sans-serif;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(-45deg,#ff4fa3,#ff80c8,#c471ed,#6c63ff);
+
+    background-size:400% 400%;
+
+    animation:bg 12s infinite;
+
+}
+
+
+
+@keyframes bg{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+
+
+#hearts{
+
+    position:fixed;
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+
+
+.heart{
+
+    position:absolute;
+
+    bottom:-50px;
+
+    animation:heart 7s linear forwards;
+
+}
+
+
+
+@keyframes heart{
+
+    from{
+
+        transform:translateY(0);
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-110vh);
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+.card{
+
+    width:90%;
+    max-width:420px;
+
+    padding:45px 30px;
+
+    text-align:center;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(20px);
+
+
+    box-shadow:
+    0 0 40px rgba(255,255,255,.3);
+
+
+    animation:show 1.2s;
+
+}
+
+
+
+@keyframes show{
+
+from{
+
+opacity:0;
+transform:scale(.7);
+
+}
+
+to{
+
+opacity:1;
+transform:scale(1);
+
+}
+
+}
+
+
+
+
+.small{
+
+color:white;
+
+font-size:18px;
+
+}
+
+
+
+h1{
+
+font-family:'Great Vibes',cursive;
+
+font-size:55px;
+
+color:white;
+
+margin:15px 0;
+
+}
+
+
+
+#typing{
+
+color:white;
+
+font-size:18px;
+
+height:35px;
+
+}
+
+
+
+
+button{
+
+
+margin-top:30px;
+
+padding:16px 35px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:18px;
+
+font-weight:600;
+
+color:white;
+
+background:
+linear-gradient(45deg,#ff2d8d,#ff80c8);
+
+
+cursor:pointer;
+
+box-shadow:
+0 0 25px pink;
+
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div id="hearts"></div>
+
+
+
+<div class="card">
+
+
+<p class="small">
+A Little Gift From
+</p>
+
+
+<h1>
+Your Naitik ❤️
+</h1>
+
+
+<p id="typing"></p>
+
+
+
+<button onclick="nextScreen()">
+
+Open My Surprise ✨
+
+</button>
+
+
+</div>
+
+
+
+
+<script>
+
+
+const text =
+"Made only for my Rasmalai 🥰";
+
+
+let i=0;
+
+
+function type(){
+
+if(i<text.length){
+
+document.getElementById("typing").innerHTML += text[i];
+
+i++;
+
+setTimeout(type,70);
+
+}
+
+}
+
+
+type();
+
+
+
+
+
+function hearts(){
+
+let h=document.createElement("span");
+
+h.className="heart";
+
+h.innerHTML=
+["❤️","💖","💕","💗"][Math.floor(Math.random()*4)];
+
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.fontSize=
+20+Math.random()*20+"px";
+
+
+document.getElementById("hearts").appendChild(h);
+
+
+setTimeout(()=>{
+
+h.remove();
+
+},7000);
+
+
+}
+
+
+setInterval(hearts,300);
+
+
+
+
+
+function nextScreen(){
+
+alert("Screen 2 Coming Soon 👀");
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
