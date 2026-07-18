@@ -398,7 +398,66 @@ setInterval(hearts,300);
 
 function nextScreen(){
 
-alert("Screen 2 Coming Soon 👀");
+
+document.querySelector(".card").style.display="none";
+
+
+document.getElementById("screen2").style.display="block";
+
+
+startCountdown();
+
+
+}
+
+
+
+function startCountdown(){
+
+
+let count=3;
+
+
+let box=document.getElementById("countdown");
+
+
+let timer=setInterval(()=>{
+
+
+box.innerHTML=count;
+
+
+count--;
+
+
+if(count<0){
+
+
+clearInterval(timer);
+
+
+box.innerHTML=
+"You Can Open Your Eyes ❤️";
+
+
+document.getElementById("openBtn").style.display="inline-block";
+
+
+}
+
+
+},1000);
+
+
+}
+
+
+
+function screen3(){
+
+
+alert("Gift Box Coming Soon 🎁");
+
 
 }
 
