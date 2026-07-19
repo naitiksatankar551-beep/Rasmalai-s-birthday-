@@ -281,6 +281,177 @@ font-size:50px;
 #letter{
     display:none;
 }
+    /* ===========================
+   SCREEN 3 PREMIUM ENVELOPE
+=========================== */
+
+#screen3{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+#envelope{
+
+    position:relative;
+
+    width:320px;
+    height:220px;
+
+    margin:20px auto;
+
+}
+
+/* Envelope Body */
+
+.envelope-body{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+    height:150px;
+
+    background:linear-gradient(135deg,#ff78b7,#ff4fa3);
+
+    border-radius:0 0 18px 18px;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.25);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Envelope Flap */
+
+.envelope-top{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:0;
+    height:0;
+
+    border-left:160px solid transparent;
+
+    border-right:160px solid transparent;
+
+    border-bottom:95px solid #ff9ccc;
+
+    transform-origin:top;
+
+    transition:1s;
+
+    z-index:5;
+
+}
+
+/* Letter */
+
+#letter{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:25px;
+
+    transform:translateX(-50%);
+
+    width:260px;
+
+    height:0;
+
+    overflow:hidden;
+
+    transition:1s;
+
+    z-index:2;
+
+}
+
+/* Paper */
+
+.letter-paper{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    min-height:280px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.25);
+
+}
+
+/* Heading */
+
+.letter-paper h2{
+
+    color:#ff3f90;
+
+    margin-bottom:20px;
+
+    font-size:34px;
+
+}
+
+/* Letter Text */
+
+#letterText{
+
+    color:#555;
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    white-space:pre-line;
+
+}
+
+/* Envelope Text */
+
+.envelope-title{
+
+    color:white;
+
+    font-size:18px;
+
+}
+
+.envelope-name{
+
+    color:white;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:42px;
+
+}
+
+/* Open Button */
+
+#letterBtn{
+
+    margin-top:35px;
+
+    }
 </style>
 
 
