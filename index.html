@@ -700,11 +700,6 @@ function screen3(){
     document.getElementById("screen3").style.display="block";
 
 }
-
-
-
-</script>
-
 const message = `Happy Birthday,
 My Beautiful Tanushree ❤️
 
@@ -732,22 +727,20 @@ function openLetter(){
     letter.style.display = "block";
 
     setTimeout(()=>{
-
         letter.style.height = "320px";
-
     },400);
 
-    let i = 0;
+    let i=0;
 
-    const box = document.getElementById("letterText");
+    const box=document.getElementById("letterText");
 
-    box.innerHTML = "";
+    box.innerHTML="";
 
     function typing(){
 
-        if(i < message.length){
+        if(i<message.length){
 
-            box.innerHTML += message.charAt(i);
+            box.innerHTML+=message.charAt(i);
 
             i++;
 
@@ -760,6 +753,10 @@ function openLetter(){
     setTimeout(typing,900);
 
 }
+
+
+</script>
+
 
 </body>
 
