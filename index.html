@@ -4,11 +4,7 @@
 <meta charset="UTF-8">  
 <meta name="viewport" content="width=device-width, initial-scale=1.0">  
 <title>A Little Gift ❤️</title>  
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">  
-
-<!-- कंफ़ेटी (रंग-बिरंगे कागज़ के टुकड़े) उड़ाने के लिए बाहरी लाइब्रेरी लिंक -->
-<script src="https://jsdelivr.net"></script>
-
+<link href="https://googleapis.com" rel="stylesheet">  
 <style>  
 *{  
     margin:0;  
@@ -18,7 +14,7 @@
   
 body{  
     min-height:100vh;  
-    overflow-y:auto;  /* मोबाइल पर स्क्रॉल की समस्या को ठीक करने के लिए */
+    overflow-y:auto;  
     font-family:'Poppins',sans-serif;  
     display:flex;  
     justify-content:center;  
@@ -26,7 +22,7 @@ body{
     background:linear-gradient(-45deg,#ff4fa3,#ff80c8,#c471ed,#6c63ff);  
     background-size:400% 400%;  
     animation:bg 12s infinite;  
-    padding: 40px 0;  /* ऊपर और नीचे सुरक्षित जगह देने के लिए */
+    padding: 40px 0;  
 }  
   
 @keyframes bg{  
@@ -39,6 +35,7 @@ body{
     position:fixed;  
     inset:0;  
     pointer-events:none;  
+    z-index: 10;
 }  
   
 .heart{  
@@ -194,7 +191,7 @@ button{
     padding:25px;   
     min-height:280px;  
     box-shadow: 0 10px 30px rgba(0,0,0,.25);  
-    margin-top: -150px; /* लिफाफे से ऊपर सही तालमेल के लिए */
+    margin-top: -150px; 
 }  
   
 .letter-paper h2{  
@@ -229,8 +226,8 @@ button{
 <body>  
 <div id="hearts"></div>  
 
-<!-- बैकग्राउंड म्यूज़िक ट्रैक (आप src की जगह अपना मनपसंद ऑनलाइन गाना लिंक डाल सकते हैं) -->
-<audio id="bgMusic" src="https://soundhelix.com" loop></audio>
+<!-- हल्का और तेज़ लोड होने वाला म्यूज़िक ट्रैक -->
+<audio id="bgMusic" src="https://mixkit.co" loop></audio>
 
 <!-- SCREEN 1 -->
 <div class="card">  
@@ -280,6 +277,26 @@ function type(){
 }  
 type();  
   
+function createPopEffect(symbol) {
+    for (let k = 0; k < 30; k++) {
+        let h = document.createElement("span");
+        h.className = "heart";
+        h.innerHTML = symbol;
+        h.style.left = (30 + Math.random() * 40) + "vw"; 
+        h.style.bottom = "20vh"; 
+        h.style.fontSize = (20 + Math.random() * 30) + "px";
+        
+        let duration = 3 + Math.random() * 4;
+        h.style.animation = "heart " + duration + "s cubic-bezier(0.25, 1, 0.5, 1) forwards";
+        
+        let sideMove = (Math.random() - 0.5) * 200;
+        h.style.transform = `translateX(${sideMove}px)`;
+        
+        document.getElementById("hearts").appendChild(h);
+        setTimeout(() => { h.remove(); }, duration * 1000);
+    }
+}
+
 function hearts(){  
     let h=document.createElement("span");  
     h.className="heart";  
@@ -296,10 +313,9 @@ function nextScreen(){
     document.getElementById("screen2").style.display="block";  
     startCountdown();  
     
-    // स्क्रीन बदलते ही म्यूज़िक चालू करें
     let audio = document.getElementById("bgMusic");
     if(audio) {
-        audio.play().catch(e => console.log("Music play blocked:", e));
+        audio.play().catch(e => console.log("Music blocked:", e));
     }
 }  
   
@@ -341,18 +357,16 @@ Forever Yours,
 Naitik 💖`;  
   
 function openLetter(){  
-    // 'Open Letter' दबाते ही कंफ़ेटी (कागज़ के टुकड़े) उड़ाएँ
-    confetti({
-        particleCount: 150,
-        spread: 85,
-        origin: { y: 0.6 }
-    });
+    // 'Open Letter' दबाते ही स्क्रीन के बीच से ढेर सारे दिल और गुब्बारे उड़ेंगे
+    createPopEffect("🎉");
+    createPopEffect("🎈");
+    createPopEffect("❤️");
 
     document.querySelector(".envelope-top").style.transform = "rotateX(180deg)";  
     const letter = document.getElementById("letter");  
     letter.style.display = "block";  
     setTimeout(()=>{  
-        letter.style.height = "auto"; /* फिक्स हाइट की जगह auto ताकि टेक्स्ट कटे नहीं */  
+        letter.style.height = "auto"; 
     },400);  
   
     let i=0;  
@@ -370,5 +384,4 @@ function openLetter(){
 }  
 </script> 
 </body>  
-      </html>
-  
+</html>
