@@ -705,7 +705,61 @@ function screen3(){
 
 </script>
 
+const message = `Happy Birthday,
+My Beautiful Tanushree ❤️
 
+Today is one of the most beautiful days because it's the day you came into this world.
+
+May your smile always stay the same,
+may all your dreams come true,
+and may happiness always find you.
+
+Thank you for being such an amazing person.
+
+Happy Birthday once again,
+My Rasmalai ❤️
+
+Forever Yours,
+Naitik 💖`;
+
+function openLetter(){
+
+    document.querySelector(".envelope-top").style.transform =
+    "rotateX(180deg)";
+
+    const letter = document.getElementById("letter");
+
+    letter.style.display = "block";
+
+    setTimeout(()=>{
+
+        letter.style.height = "320px";
+
+    },400);
+
+    let i = 0;
+
+    const box = document.getElementById("letterText");
+
+    box.innerHTML = "";
+
+    function typing(){
+
+        if(i < message.length){
+
+            box.innerHTML += message.charAt(i);
+
+            i++;
+
+            setTimeout(typing,35);
+
+        }
+
+    }
+
+    setTimeout(typing,900);
+
+}
 
 </body>
 
